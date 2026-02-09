@@ -3,7 +3,7 @@ import axios from "axios";
 
 // API Function for fecth the backend API
 const API = axios.create({
-  baseURL: "http://localhost:5000/api/todos",
+  baseURL: "https://mern-todo-application-ah91.onrender.com/api/todos",
 });
 
 // Default Routes for CURD Operation for to-do

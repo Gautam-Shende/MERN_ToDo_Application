@@ -47,6 +47,7 @@ const TodoApp = () => {
       const response = await getTodos();
       // added todo data from backend
       setTodoList(response.data);
+      console.log("API response:", response.data);
       setTimeout(() => setIsLoading(false), 1000);
     } catch (err) {
       if (err.message === "Network Error") {
@@ -227,7 +228,9 @@ const TodoApp = () => {
                           </Badge>
                         </div>
                         {task.description && (
-                          <p className="mb-0 text-muted fw-medium">{task.description}</p>
+                          <p className="mb-0 text-muted fw-medium">
+                            {task.description}
+                          </p>
                         )}
                       </div>
 
