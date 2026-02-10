@@ -2,233 +2,168 @@
 
 📧 gautamshende14@gmail.com
 
-📌 Assignment 7: Identifying APIs for To-Do List App
+# Assignment 7: Identifying APIs for To-Do List App
 
 🌐 go Live :- https://mern-todo-application-akvu.onrender.com/
 
-🧾 API Planning for To-Do List App
+Project Overview 🚀
+This project is a To-Do List application, The User will manage our task To Do , Complete the task (mainly user task create/add karega “api/todos/”) User created Todo task successfully.Then “api/todos” route fetch the task from database. (task aoutomatically show Honge “/” home page pe jyese hi user new todo add krega).
 
-The objective of this assignment is to identify and plan the necessary APIs required for a To-Do List application. These APIs will support all core functionalities of the app with containing the creating, reading, updating, and deleting tasks (CRUD operations). All This Operations.
+Required API’s for To-Do List App 🔧
 
-The focus is on designing RESTful APIs, not implementing them.
+1) Add Task/Todo API ➕
+EndPoint :- POST /api/todos/
 
-📖 Overview of the To-Do List App
+For creating/adding the task the POST “/api/todos/” (CURD) Api is required for adding the Todo’s , its help to save task/todo directly at mongodb database.
 
-The To-Do List app allows users to:
-✅ Add Task (new tasks)
-✅ View all tasks
-✅ View a single task
-✅ Update task details or status
-✅ Delete tasks
-
-Each task contains information such as title, description, status, and timestamps.
-
-🆕 1. Add Task (Create a new Task)
-📍 Endpoint
-POST /api/tasks
-
-🎯 Purpose
-
-To create and store a new task in the system.
-Creating with title, description, and status
-
-🔧 HTTP Method
-
-POST
-
-📤 Request Body // Model of request body
+Request in JSON format :-
 {
-  "title": "Buy groceries",
-  "description": "Milk, Bread, Eggs",
-  "status": "pending"
+"title": "MERN Assignment 7",
+“description”: “ Identify the Todo API’s”
+"status": “pending”
 }
 
-📝 Request Body Explanation
-
-title: Name of the task , which task user wants to do
-description: Additional details about the task
-status: Current task status (pending or completed)
-
-🆔 Unique ID Logic
-
-The server generates a unique task ID automatically.
-Auto-increment ID (database)
-
-📥 Expected Response
+Response Example :-
 {
-  "id": "123", // a random id getting from the server response
-  "title": "Buy groceries",
-  "description": "Milk, Bread, Eggs",
-  "status": "pending",
-  "createdAt": "2026-01-31T10:00:00Z" // by default
+"id": "12345", // todo id
+"title": "Complete Assignment", // todo title
+"status": “pending” // todo’s complete or pending , default false
 }
 
-💡 Reasoning
+This POST “api/todos/” routing of Nodejs CURD Method. Helps to add Task at the mongodb database (ye api frontend me axios ka use kar ke “createTodo” function ko Add todo button ke through use kiya hai)
 
-POST is used for creating or adding something new in a database or server.
-The server controls ID creation to avoid duplicates.
+1) Model.js Create kiya :- For Todo/task Schema 📂
 
-📋 2. Get All Tasks (Read All Tasks)
-📍 Endpoint
-GET /api/tasks
+2) TodoController.js Create kiya :- Todo/task key controller function (getTodo, createTodo, updateTodo, deleteTodo) function banaya. ⚙️
 
-🎯 Purpose
+3) TodoRoutes.js Create kiya :- Todo/task ko CURD method use krke safe routing create kiya. 🔗
 
-To fetch and access all tasks stored in the system.
+4) TodoApp.jsx frontend ko Create kiya :- frontend me “addtodo” function bnanya or use home “/” default add kiya. 💻
 
-🔧 HTTP Method
+2) Get All Tasks API 📋
+EndPoint :- GET /api/todos
+Fetching the all Todos/task using GET “/api/todos”
 
-GET
+Response in JSON format :-
 
-📤 Request Body
-
-None , because we are trying to fetch the data, not uploading or creating
-
-📥 Expected Response
 [
-  {
-    "id": "123",
-    "title": "Buy groceries",
-    "status": "pending"
-  },
-  {
-    "id": "124",
-    "title": "Complete assignment",
-    "status": "completed"
-  }
+{
+"id": "1", // id of todo
+"title": "Buy groceries", // todo title
+"status": “pending” // todo’s complete or pending , default false
+},
+{
+"id": "2",
+"title": "Study React",
+"status": “completed”
+}
 ]
 
-💡 Reasoning
+This GET “/api/todos/” (CURD) Method. Helps to Fetch all todo’s/task’s at the web page. Form added todo’s mongodb database . (ye api frontend me axios ka use kar ke “getTodos” home “/” routing ko add kiya.
 
-GET is used to getting or accessing the data from the database or system .
+1) Model.js Create kiya :- For Todo/task Schema 📂
 
-🔍 3. Get Single Task (Read One Task)
-📍 Endpoint
-GET /api/tasks/{id}
+2) TodoController.js Create kiya :- Todo/task key controller function (getTodo, createTodo, updateTodo, deleteTodo) function banaya. ⚙️
 
-🎯 Purpose
+3) Todoroutes.js Create kiya :- Todo/task ko CURD method use karke safe routing create kiya. 🔗
 
-To access and fetch the details of a specific task using its ID.
+4) TodoApp.jsx frontend ko Create kiya :- frontend me “getTodo” function bnanya or use home “/” me dal diya 💻
 
-🔧 HTTP Method
+3) Update Task API ✏️
+EndPoint :- PUT /api/todos/:id
 
-GET
+For Updating the task the PUT “/api/todos/:id” (CURD) Api is required for Updating the Todo’s , its help to Updating the todo from todo “id” directly at mongodb database.
 
-🔑 URL Parameter
-
-id: Unique task identifier
-
-📥 Expected Response
+Request Body Example:
 {
-  "id": "123",
-  "title": "Buy groceries",
-  "description": "Milk, Bread, Eggs",
-  "status": "pending"
+"description": "MERN Assignment 7 is Completed",
+"status": “completed”
 }
 
-💡 Reasoning
-
-This allows fetching a single resource in a data system .
-
-✏️ 4. Update Task (Update Task Details or Status)
-📍 Endpoint
-PUT /api/tasks/{id}
-
-🎯 Purpose
-
-To update an existing task , with the Task ID
-
-🔧 HTTP Method
-
-PUT
-
-📤 Request Body
+Response Example :-
 {
-  "title": "Buy groceries",
-  "status": "completed"
+"message": "Task updated successfully"
 }
 
-📥 Expected Response
+This PUT “/api/todos/:id” (CURD) Method. Helps to Update any todo’s/task’s Form the todo/task “id” . (ye api frontend me axios ka use kar ke “updateTodos” “/” routing ko add kiya.
+
+1) Model.js Create kiya :- For Todo/task Schema 
+
+2) TodoController.js Create kiya :- Todo/task key controller function (getTodo, createTodo, updateTodo, deleteTodo) function banaya. ⚙️
+
+3) Todoroutes.js Create kiya :- Todo/task ko CURD method use karke safe routing create kiya. 🔗
+
+4) TodoApp.jsx frontend ko Create kiya :- frontend me “editTodo” function bnanya.and and usme backend ka “updateTodo” controller function ko implement kiya.
+and “saveTodo” function me “updateTodo” id , title, and description update krne ka method return kiya. 💻
+
+4) Delete Todo/Task API ❌
+EndPoint :- DELETE /api/todos/:id
+
+For Deleting the task the DELETE “/api/todos/:id” (CURD) Api is required for Deleting the Todo’s , its help to Deleting the todo from todo “id” directly at mongodb database.
+
+Response Example:
 {
-  "id": "123",
-  "title": "Buy groceries",
-  "status": "completed",
-  "updatedAt": "2026-01-31T11:00:00Z"
+"message": "Task deleted successfully"
 }
 
-💡 Reasoning
+This DELETE “/api/todos/:id” (CURD) Method. Helps to Delete any todo’s/task’s Form the todo/task “id” . (ye api frontend me axios ka use kar ke “deleteTodos” “/” routing ko add kiya.
 
-PUT is used for updating the any changes at dada of the system,
+1) Model.js Create kiya :- For Todo/task Schema 📂
 
-🗑️ 5. Delete Task (Delete Task)
-📍 Endpoint
-DELETE /api/tasks/{id}
+2) TodoController.js Create kiya :- Todo/task key controller function (getTodo, createTodo, updateTodo, deleteTodo) function banaya. ⚙️
 
-🎯 Purpose
+3) Todoroutes.js Create kiya :- Todo/task ko CURD method use karke safe routing create kiya. 🔗
 
-To delete a task permanently. With the help of task ID
+4) TodoApp.jsx frontend ko Create kiya :- frontend me “deleteTodo” function bnanya.and and usme backend ka “deleteTodo” controller function ko implement kiya.
+And deleteTodo function ko Delete button me add kiya. 💻
 
-🔧 HTTP Method
 
-DELETE
+# The given API’s perform CRUD operations:
 
-📤 Request Body
+3. How These APIs Perform CRUD Operations
+The given API’s perform CRUD operations:
+Operation
+API
+Create
+Add Task API
+Read
+Get Tasks API
+Update
+Update Task API
+Delete
+Delete Task API
 
-None
 
-📥 Expected Response
-{
-  "message": "Task deleted successfully"
-}
+# These operations allow full management of tasks inside the To-Do application.
 
-💡 Reasoning
+# Todo Application API Working Flow 
 
-DELETE is used for deleting any data from the database or system directly with data ID.
+User adds task from frontend. 
 
-📊 CRUD Operations Summary
-Operation	API Endpoint	HTTP Method
-Create	/api/tasks	POST
-Read (All)	/api/tasks	GET
-Read (One)	/api/tasks/{id}	GET
-Update	/api/tasks/{id}	PUT
-Delete	/api/tasks/{id}	DELETE
+Frontend sends request to backend API. 
 
-These APIs together fully support CRUD operations for the To-Do List app.
+Backend processes request and stores data in mongodb database. 
 
-🔄 How These APIs Work Together
+Backend sends response back to frontend. 
 
-⚛️ React frontend sends requests to these APIs.
-⚙️ APIs handle task data operations.
-📦 The server responds with JSON data.
-🖥️ Frontend updates UI based on responses.
-🧪 We can check this API’s with the help of a postman or thunder client .
+Frontend updates UI. 
 
-⚠️ The Challenges i Phased to building This To Do Application Backend API’s
+# Challenges I Faced 
 
-🧭 Understanding API Routes
+When i Write Backend code of This ToDo API .
 
-In the beginning, it was confusing to understand which route should be used for getting, creating, updating, and deleting todos. Sometimes I used the wrong method or route.
+Making ToDo Schema using Mongoose Schema 
 
-🛑 User Input Validation
+Proper Todo title, description, status=completed or pending , i make status enum “completed” or “pending” by default “pending”( enum value samajh nhi aa rhi thi, web se info nikali or use kiya)
 
-When users sent empty or incorrect data, the API showed errors. Later, I understood that checking the data before saving it is very important.
+Creating the proper controller system for todomodel 
 
-⏳ Handling Async and Await
+I created the Todo/task controller function (getTodo, createTodo, updateTodo, deleteTodo) ( ye sare function create krne ke liye proper req, res use kyese kre ye thoda difficult lga)
 
-At first, it was difficult to understand async and await. Sometimes I forgot to use await, and the API did not return the correct response.
+The Fetching the Todo API’s from the backend in fronten 
 
-🔗 Frontend and Backend Connection Issues
+I used axios for fetching the backend API’s for creating the proper route in frontend. (mene jab frontend me access krne ki koshish ki to bht se error’s aa rage the proper api andpoitn create krte time)
 
-While connecting the frontend with the backend, I faced problems like CORS , Axios errors and wrong API URLs. Because of this, the data was not loading properly.
+Deploying the Backend and Frontend at web page 🚀
 
-🧪 API Testing
-
-I had to test every API using Postman. Some APIs worked while others did not, and finding the issue took time.
-
-🚨 Error Handling
-
-It took time to understand how to send proper error messages and status codes. In the beginning, the server showed errors but did not clearly explain the problem.
-
-🚀 Deploying Backend & Frontend
-
-It very difficult to deploy backend and frontend on render , i tried in vercel but it giving so many error’s, so I used render , but I'm still getting errors. Then I get help from chat gpt to fix the errors . and finally I successfully deployed my backend and frontend .
+I faced so many error’s when i deploying the backend code on render , 1) api’s is not valid, 2) run command in package.json , 3) main root directory , etc problem i faced . ( ye sare problem’s mene backend ko deploy krne me face kiye,)
