@@ -149,18 +149,18 @@ Frontend updates UI.
 
 When i Write Backend code of This ToDo API .
 
-Making ToDo Schema using Mongoose Schema 
+1) Making ToDo Schema using Mongoose Schema 
 
 Proper Todo title, description, status=completed or pending , i make status enum “completed” or “pending” by default “pending”( enum value samajh nhi aa rhi thi, web se info nikali or use kiya)
 
-Creating the proper controller system for todomodel 
+2) Creating the proper controller system for todomodel 
 
 I created the Todo/task controller function (getTodo, createTodo, updateTodo, deleteTodo) ( ye sare function create krne ke liye proper req, res use kyese kre ye thoda difficult lga)
 
-The Fetching the Todo API’s from the backend in fronten 
+3) The Fetching the Todo API’s from the backend in fronten 
 
 I used axios for fetching the backend API’s for creating the proper route in frontend. (mene jab frontend me access krne ki koshish ki to bht se error’s aa rage the proper api andpoitn create krte time)
 
-Deploying the Backend and Frontend at web page 🚀
+4) Deploying the Backend and Frontend at web page 🚀
 
 I faced so many error’s when i deploying the backend code on render , 1) api’s is not valid, 2) run command in package.json , 3) main root directory , etc problem i faced . ( ye sare problem’s mene backend ko deploy krne me face kiye,)
