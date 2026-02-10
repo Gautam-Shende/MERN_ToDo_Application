@@ -122,18 +122,13 @@ And deleteTodo function ko Delete button me add kiya. 💻
 
 # The given API’s perform CRUD operations:
 
-3. How These APIs Perform CRUD Operations
 The given API’s perform CRUD operations:
-Operation
-API
-Create
-Add Task API
-Read
-Get Tasks API
-Update
-Update Task API
-Delete
-Delete Task API
+
+API          Operation
+Create       Add Task API
+Get          Read Tasks API
+Update       Update Task API
+Delete       Delete Task API
 
 
 # These operations allow full management of tasks inside the To-Do application.
