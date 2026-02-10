@@ -23,9 +23,6 @@ The To-Do List app allows users to:
 
 Each task contains information such as title, description, status, and timestamps.
 
-🌍 Base API URL
-https://api.todoapp.com/api/tasks
-
 🆕 1. Add Task (Create a new Task)
 📍 Endpoint
 POST /api/tasks
