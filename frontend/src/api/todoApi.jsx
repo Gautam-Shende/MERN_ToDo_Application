@@ -3,7 +3,7 @@ import axios from "axios";
 
 // API Function for fecth the backend API
 const API = axios.create({
-  baseURL:  import.meta.env.VITE_API_URL,
+  baseURL: "https://mern-todo-application-ah91.onrender.com/api/todos"
 });
 
 // Default Routes for CURD Operation for to-do

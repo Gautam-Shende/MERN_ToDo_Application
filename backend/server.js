@@ -9,9 +9,12 @@ import ToDoRoute from "./routes/ToDoRoute.js"; // Import todo routes
 const app = express();
 
 // Enable CORS so frontend can make requests
-app.use(cors({
-  origin: "*",
-}));
+app.use(
+  cors({
+    origin: "*",
+    credentials: true,
+  }),
+);
 
 // Parse incoming JSON requests automatically
 app.use(express.json());
