@@ -38,7 +38,9 @@ This POST “api/todos/” routing of Nodejs CURD Method. Helps to add Task at t
 
 3) TodoRoutes.js Create kiya :- Todo/task ko CURD method use krke safe routing create kiya. 🔗
 
-4) TodoApp.jsx frontend ko Create kiya :- frontend me “addtodo” function bnanya or use home “/” default add kiya. 💻
+4) TodoApp.jsx frontend ko Create kiya :- frontend me “addtodo” function bnanya or use home “/” default add kiya.
+
+
 
 2) Get All Tasks API 📋
 EndPoint :- GET /api/todos
