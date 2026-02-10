@@ -11,7 +11,7 @@ This project is a To-Do List application, The User will manage our task To Do , 
 
 Required API’s for To-Do List App 🔧
 
-1) Add Task/Todo API ➕
+# 1) Add Task/Todo API ➕
 EndPoint :- POST /api/todos/
 
 For creating/adding the task the POST “/api/todos/” (CURD) Api is required for adding the Todo’s , its help to save task/todo directly at mongodb database.
@@ -42,7 +42,7 @@ This POST “api/todos/” routing of Nodejs CURD Method. Helps to add Task at t
 
 
 
-2) Get All Tasks API 📋
+# 2) Get All Tasks API 📋
 EndPoint :- GET /api/todos
 Fetching the all Todos/task using GET “/api/todos”
 
@@ -71,7 +71,7 @@ This GET “/api/todos/” (CURD) Method. Helps to Fetch all todo’s/task’s a
 
 4) TodoApp.jsx frontend ko Create kiya :- frontend me “getTodo” function bnanya or use home “/” me dal diya 💻
 
-3) Update Task API ✏️
+# 3) Update Task API ✏️
 EndPoint :- PUT /api/todos/:id
 
 For Updating the task the PUT “/api/todos/:id” (CURD) Api is required for Updating the Todo’s , its help to Updating the todo from todo “id” directly at mongodb database.
@@ -98,7 +98,7 @@ This PUT “/api/todos/:id” (CURD) Method. Helps to Update any todo’s/task�
 4) TodoApp.jsx frontend ko Create kiya :- frontend me “editTodo” function bnanya.and and usme backend ka “updateTodo” controller function ko implement kiya.
 and “saveTodo” function me “updateTodo” id , title, and description update krne ka method return kiya. 💻
 
-4) Delete Todo/Task API ❌
+# 4) Delete Todo/Task API ❌
 EndPoint :- DELETE /api/todos/:id
 
 For Deleting the task the DELETE “/api/todos/:id” (CURD) Api is required for Deleting the Todo’s , its help to Deleting the todo from todo “id” directly at mongodb database.
